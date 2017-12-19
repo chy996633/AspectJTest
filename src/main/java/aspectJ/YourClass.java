@@ -12,6 +12,7 @@ public class YourClass {
         yourClass.yourMethodAfter();
         yourClass.yourMethodAround(1);
         yourClass.yourMethodAround(1,"Test");
+        yourClass.shouldNotBeUsed();
     }
 
     public void yourMethodBefore() {
@@ -31,6 +32,11 @@ public class YourClass {
         System.out.println("Executing TestTarget.yourMethodAround()");
         System.out.println("i : "+i);
         System.out.println("x : "+x);
+    }
+
+    @Deprecated
+    public void shouldNotBeUsed(){
+        System.out.println("SHOULD NOT BE USED");
     }
 
 }

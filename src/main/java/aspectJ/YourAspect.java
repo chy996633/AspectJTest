@@ -6,17 +6,28 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class YourAspect {
 
+    @Pointcut("execution (@Deprecated * *(..) )")
+    public void avoidUseDeprecatedMethod(){
+
+    }
+
+    @Around(value = "avoidUseDeprecatedMethod()")
+    public void arount(ProceedingJoinPoint proceedingJoinPoint){
+        System.out.println(" We can just ignore @deprecated method ");
+    }
+
     @Before("execution (* aspectJ.YourClass.yourMethodBefore(..))")
-    public void beforeAdvice(JoinPoint joinPoint) {
+    public void beforeAdvice() {
         System.out.println("YourAspect's BeforeAdvice's body is now executed Before yourMethodBefore is called.");
     }
 
     @After("execution (public !Object aspectJ.YourClass.yourMethodAfter(..))")
-    public void afterAdvice(JoinPoint joinPoint) {
+    public void afterAdvice() {
         System.out.println("YourAspect's afterAdvice's body is now executed After yourMethodAfter is called.");
     }
 
@@ -55,5 +66,7 @@ public class YourAspect {
         //Just prints new lines after each method that's executed in
         System.out.print("\n\r");
     }
+
+
 
 }
