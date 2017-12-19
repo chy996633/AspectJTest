@@ -10,7 +10,6 @@
 
   <aop:aspectj-autoproxy/>
 
-  <!--<bean id="aspcejHandler" class="com.tgb.aop.AspceJAdvice"/>-->
   <bean id="YourAspect" class="aspectJ.YourAspect" />
 
   <bean id="YourClass" class="aspectJ.YourClass" />

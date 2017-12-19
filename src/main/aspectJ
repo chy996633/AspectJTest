@@ -1,0 +1,9 @@
+public aspect TxAspect
+{
+    void around():call(void Hello.sayHello()){
+        System.out.println("begin transaction");
+        proceed();
+        System.out.println("end transaction");
+    }
+}
+

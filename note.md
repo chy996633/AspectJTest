@@ -1,0 +1,5 @@
+#笔记
+
+在DefaultAopProxyFactory这个类里可以看出
+
+如果配置的目标类是接口，那么就会使用Java动态代理机制来生成代理类。否则使用CGLIB
