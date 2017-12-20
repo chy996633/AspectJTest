@@ -5,5 +5,7 @@ public aspect TxAspect
         proceed();
         System.out.println("end transaction");
     }
+
+    declare warning : call( @Deprecated * *.(..) ) : "Shouldn't use Deprecated method";
 }
 
